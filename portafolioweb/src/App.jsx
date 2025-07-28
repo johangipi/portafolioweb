@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 const SECTIONS = [
@@ -11,6 +11,17 @@ const SECTIONS = [
 
 function App() {
   const [activeSection, setActiveSection] = useState('info')
+  const [animateSkills, setAnimateSkills] = useState(false)
+
+  useEffect(() => {
+    if (activeSection === 'skills') {
+      setAnimateSkills(false)
+      // Espera un pequeño tiempo para reiniciar la animación
+      setTimeout(() => setAnimateSkills(true), 100)
+    } else {
+      setAnimateSkills(false)
+    }
+  }, [activeSection])
 
   return (
     <div className="container">
@@ -37,6 +48,13 @@ function App() {
           <p>
             Soy desarrollador web apasionado por crear soluciones digitales. Me especializo en React y tecnologías modernas de frontend.
           </p>
+          <a
+            href="/CV-JohanGiraldo.pdf"
+            download
+            className="download-btn"
+          >
+            Descargar CV
+          </a>
         </section>
       )}
 
@@ -64,27 +82,27 @@ function App() {
           <div>
             <div className="skill-label">React</div>
             <div className="skill-bar-container">
-              <div className="skill-bar" style={{ width: '90%' }}>90%</div>
+              <div className={`skill-bar${animateSkills ? ' fill' : ''}`} data-width="90%">90%</div>
             </div>
             <div className="skill-label">JavaScript</div>
             <div className="skill-bar-container">
-              <div className="skill-bar" style={{ width: '85%' }}>85%</div>
+              <div className={`skill-bar${animateSkills ? ' fill' : ''}`} data-width="85%">85%</div>
             </div>
             <div className="skill-label">Java</div>
             <div className="skill-bar-container">
-              <div className="skill-bar" style={{ width: '70%' }}>70%</div>
+              <div className={`skill-bar${animateSkills ? ' fill' : ''}`} data-width="70%">70%</div>
             </div>
             <div className="skill-label">HTML & CSS</div>
             <div className="skill-bar-container">
-              <div className="skill-bar" style={{ width: '95%' }}>95%</div>
+              <div className={`skill-bar${animateSkills ? ' fill' : ''}`} data-width="95%">95%</div>
             </div>
             <div className="skill-label">Git</div>
             <div className="skill-bar-container">
-              <div className="skill-bar" style={{ width: '80%' }}>80%</div>
+              <div className={`skill-bar${animateSkills ? ' fill' : ''}`} data-width="80%">80%</div>
             </div>
             <div className="skill-label">Vite</div>
             <div className="skill-bar-container">
-              <div className="skill-bar" style={{ width: '75%' }}>75%</div>
+              <div className={`skill-bar${animateSkills ? ' fill' : ''}`} data-width="75%">75%</div>
             </div>
           </div>
         </section>
