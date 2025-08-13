@@ -22,8 +22,8 @@ Este proyecto está diseñado con un tema oscuro y efectos visuales inspirados e
 
 1. Clona el repositorio:
    ```sh
-   git clone https://github.com/<tu-usuario>/<nombre-del-repo>.git
-   cd <nombre-del-repo>
+   git clone https://github.com/johangipi/portafolioweb.git
+   cd portafolioweb
    ```
 2. Instala las dependencias:
    ```sh
